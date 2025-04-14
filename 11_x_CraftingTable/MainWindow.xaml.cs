@@ -45,27 +45,28 @@ namespace _11_x_CraftingTable
         }
         void RightClick(object sender, EventArgs e) {
             Label oneLabel = sender as Label;
-            oneLabel.Tag = 0;
+            Item oneItem = oneLabel.Tag as Item;
+            oneItem.colorNumber = 0;
             oneLabel.Background = new SolidColorBrush(Colors.White);
         }
         void LeftClick(object sender, EventArgs e)
         {
             Label oneLabel = sender as Label;
-            int number = int.Parse(oneLabel.Tag.ToString());
-            number++;
-            oneLabel.Tag = number;
-            if (number == 1)
+            //int number = int.Parse(oneLabel.Tag.ToString());
+            Item oneItem = oneLabel.Tag as Item;
+            oneItem.colorNumber++;
+            if (oneItem.colorNumber == 1)
                 oneLabel.Background = new SolidColorBrush(Colors.Gray);
-            else if (number == 2)
+            else if (oneItem.colorNumber == 2)
                 oneLabel.Background = new SolidColorBrush(Colors.Brown);
-            else if (number == 3)
+            else if (oneItem.colorNumber == 3)
                 oneLabel.Background = new SolidColorBrush(Colors.Gold);
-            else if (number == 4)
+            else if (oneItem.colorNumber == 4)
                 oneLabel.Background = new SolidColorBrush(Colors.Aqua);
-            else if (number == 5)
+            else if (oneItem.colorNumber == 5)
             {
                 oneLabel.Background = new SolidColorBrush(Colors.White);
-                oneLabel.Tag = 0;
+                oneItem.colorNumber = 0;
             }
 
         }
