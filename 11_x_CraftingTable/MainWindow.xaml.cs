@@ -69,6 +69,15 @@ namespace _11_x_CraftingTable
                 oneItem.colorNumber = 0;
             }
 
+            ActiveMatrix[oneItem.row, oneItem.col] = oneItem.colorNumber;
+        }
+
+        void EventAmivelKiertekeljukAMatrixot(object sender, KeyEventArgs args)
+        {
+            if (args.Key == Key.Enter)
+            {
+
+            }
         }
     }
 }
