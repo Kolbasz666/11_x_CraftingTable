@@ -8,10 +8,15 @@ namespace _11_x_CraftingTable
 {
     class receptek
     {
-        List<int[,]> matrixok = new List<int[,]>();
-        private string itemName { get; set; }
-        private int itemCount { get; set; }
-
+        public string itemName { get; set; }
+        public int itemCount { get; set; }
+        public List<int[,]> matrixok { get; set; }
+        public receptek(string name, int count, List<int[,]> matrixok)
+        {
+            itemName = name;
+            itemCount = count;
+            this.matrixok = matrixok;
+        }
         
         
     }
