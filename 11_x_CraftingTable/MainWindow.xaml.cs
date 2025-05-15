@@ -28,16 +28,32 @@ namespace _11_x_CraftingTable
         }
         void Start()
         {
+            Everything.Background = new SolidColorBrush(Color.FromRgb(198, 198, 198));
+            Result.Background = new SolidColorBrush(Color.FromRgb(139, 139, 139));
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Border oneBorder = new Border() { Padding = new Thickness(5), Background = new SolidColorBrush(Colors.Brown) };
-                    Label oneLabel = new Label() { VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center, Tag = new Item() { row = j, col = i, colorNumber = 0}, Background = new SolidColorBrush(Colors.AliceBlue) };
+                    Border oneBorder = new Border() { Padding = new Thickness(2), Background = new SolidColorBrush(Color.FromRgb(198,198,198)) };
+                    Label oneLabel = new Label() { VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center, Tag = new Item() { row = j, col = i, colorNumber = 0}, Background = new SolidColorBrush(Color.FromRgb(139,139,139)) };
                     Grid.SetColumn(oneBorder, i);
                     Grid.SetRow(oneBorder, j);
                     oneBorder.Child = oneLabel;
                     Kolbasz.Children.Add(oneBorder);
+                    oneLabel.MouseLeftButtonUp += LeftClick;
+                    oneLabel.MouseRightButtonUp += RightClick;
+                }
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Border oneBorder = new Border() { Padding = new Thickness(2), Background = new SolidColorBrush(Color.FromRgb(198, 198, 198)) };
+                    Label oneLabel = new Label() { VerticalContentAlignment = VerticalAlignment.Center, HorizontalContentAlignment = HorizontalAlignment.Center, Tag = new Item() { row = j, col = i, colorNumber = 0 }, Background = new SolidColorBrush(Color.FromRgb(139, 139, 139)) };
+                    Grid.SetColumn(oneBorder, i);
+                    Grid.SetRow(oneBorder, j);
+                    oneBorder.Child = oneLabel;
+                    Inventory.Children.Add(oneBorder);
                     oneLabel.MouseLeftButtonUp += LeftClick;
                     oneLabel.MouseRightButtonUp += RightClick;
                 }
